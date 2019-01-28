@@ -1,6 +1,31 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/jamesrudrum/Desktop/MakersAcademy/bookmark_manager/spec/bookmark_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/jamesrudrum/Desktop/MakersAcademy/bookmark_manager/spec/features/bookmarks_listed_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/jamesrudrum/Desktop/MakersAcademy/bookmark_manager/spec/features/root_spec.rb": [
         1,
         1,
@@ -10,6 +35,6 @@
         null
       ]
     },
-    "timestamp": 1548694463
+    "timestamp": 1548701259
   }
 }
