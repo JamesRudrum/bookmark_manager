@@ -1,10 +1,9 @@
 require 'pg'
 module Insert
   def bookmark_insert
-    con = PG.connect :dbname => 'bookmark_manager_test'
+    Bookmark.create(url: "www.reddit.com")
+    Bookmark.create(url: "www.github.com")
+    Bookmark.create(url: "www.livescore.com")
 
-    con.exec ("INSERT INTO bookmarks (url) VALUES( 'www.reddit.com' );")
-    con.exec ("INSERT INTO bookmarks (url) VALUES( 'www.livescore.com' );")
-    con.exec ("INSERT INTO bookmarks (url) VALUES( 'www.github.com' );")
   end
 end
