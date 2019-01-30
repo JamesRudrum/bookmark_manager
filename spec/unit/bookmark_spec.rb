@@ -12,4 +12,14 @@ describe Bookmark do
       expect(bookmarks).to include('www.github.com')
     end
   end
+
+  describe '.create' do
+    it 'adds bookmark' do
+      Bookmark.create(url: 'www.skysports.com')
+
+      bookmarks = Bookmark.all
+
+      expect(bookmarks).to include('www.skysports.com')
+    end
+  end
 end

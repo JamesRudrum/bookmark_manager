@@ -20,4 +20,14 @@ class Bookmark
     # do block. The block in this instance creates a bookmark by using the 'url'
     # key from the hashes in the array.
   end
+
+  def self.create(url:)
+    if ENV['RACK_ENV'] == 'test'
+      con = PG.connect :dbname => 'bookmark_manager_test'
+    else
+      con = PG.connect :dbname => 'bookmark_manager'
+    end
+
+    con.exec ("INSERT INTO bookmarks (url) VALUES('#{url}');")
+  end
 end
