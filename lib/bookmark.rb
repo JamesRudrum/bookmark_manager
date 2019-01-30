@@ -2,7 +2,12 @@ require 'pg'
 
 class Bookmark
   def self.all
-    con = PG.connect :dbname => 'bookmark_manager'
+    if ENV['RACK_ENV'] == 'test'
+      con = PG.connect :dbname => 'bookmark_manager_test'
+    else
+      con = PG.connect :dbname => 'bookmark_manager'
+    end
+
     # use pg gem to connect to bookmark_manager database
     bm = con.exec("SELECT * FROM bookmarks;")
     # select all bookmarks from the bookmark table in bookmark_manager database
