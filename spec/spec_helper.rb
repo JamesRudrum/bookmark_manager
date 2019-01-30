@@ -6,7 +6,8 @@ require 'simplecov'
 require 'simplecov-console'
 require 'capybara'
 require 'rspec'
-require_relative './test_database_setup'
+require_relative './helpers/test_database_setup'
+require_relative './helpers/insert_bookmarks'
 
 ENV['RACK_ENV'] = 'test'
 
@@ -37,6 +38,7 @@ RSpec.configure do |config|
   config.before(:each) do
     test_database_setup
   end
+  config.include Insert
 
 
   # rspec-expectations config goes here. You can use an alternate
