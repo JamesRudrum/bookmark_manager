@@ -4,8 +4,8 @@ feature 'Bookmarks Root' do
 
     visit('/bookmarks')
 
-    expect(page).to have_content 'www.reddit.com'
-    expect(page).to have_content 'www.livescore.com'
-    expect(page).to have_content 'www.github.com'
+    expect(page).to have_link('reddit', href: 'www.reddit.com')
+    expect(page).to have_link('livescore', href: 'www.livescore.com')
+    expect(page).to have_link('github', href: 'www.github.com')
   end
 end

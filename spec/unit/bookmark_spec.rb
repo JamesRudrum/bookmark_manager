@@ -1,25 +1,32 @@
 require 'bookmark'
+require_relative '../helpers/database_helpers'
 
 describe Bookmark do
   describe '.all' do
     it 'returns all bookmarks' do
-      bookmark_insert
+
+      con = PG.connect(dbname: 'bookmark_manager_test')
+
+      bookmark = bookmark_insert
 
       bookmarks = Bookmark.all
 
-      expect(bookmarks).to include('www.reddit.com')
-      expect(bookmarks).to include('www.livescore.com')
-      expect(bookmarks).to include('www.github.com')
+      expect(bookmarks.length).to eq 3
+      expect(bookmarks.first).to be_a Bookmark
+      expect(bookmarks.first.title).to eq 'reddit'
+      expect(bookmarks.first.url).to eq "www.reddit.com"
     end
   end
 
   describe '.create' do
     it 'adds bookmark' do
-      Bookmark.create(url: 'www.skysports.com')
+      bookmark = Bookmark.create(title: 'Sky Sports', url: 'www.skysports.com')
+      persisted_data = persisted_data(id: bookmark.id)
 
-      bookmarks = Bookmark.all
 
-      expect(bookmarks).to include('www.skysports.com')
+      expect(bookmark).to be_a Bookmark
+      expect(bookmark.title).to eq 'Sky Sports'
+      expect(bookmark.url).to eq 'www.skysports.com'
     end
   end
 end
