@@ -15,7 +15,7 @@ As a time-pressed user <br />
 So that I can save a website <br />
 I would like to add the site's address and title to bookmark manager <br />
 
-#2 <br />
+#3 <br />
 As a user <br />
 So that I can delete a bookmark from Bookmark Manager <br />
 I would like to delete a bookmark <br />
