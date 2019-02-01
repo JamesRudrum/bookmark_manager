@@ -18,6 +18,16 @@ describe Bookmark do
     end
   end
 
+  describe '.delete' do
+    it 'deletes bookmark' do
+
+      bookmarks = Bookmark.create( title: 'livescore', url: "www.livescore.com")
+      Bookmark.delete(id: bookmarks.id)
+
+      expect(Bookmark.all.length).to eq 0
+    end
+  end
+
   describe '.create' do
     it 'adds bookmark' do
       bookmark = Bookmark.create(title: 'Sky Sports', url: 'www.skysports.com')
